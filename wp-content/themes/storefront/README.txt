@@ -333,7 +333,7 @@ Privacy Policy for the Google Fonts API: https://developers.google.com/fonts/faq
 * Feature - Add support for GDPR features soon to be introduced in WordPress 4.9.6.
 * Tweak - Removed inline CSS cache; WordPress autoloads options by default, there's no advantage to caching the CSS.
 * Fix - Made changes to `icons.scss` to address an issue where Font Awesome icons were not being displayed correctly on some sites.
-* Fix - Apply clearfix to `.container` globally.
+* Fix - Apply clearfix to `.col-full` globally.
 
 = 2.3.0 - 2018-05-08 =
 * Feature - Sticky Add-To-Cart.

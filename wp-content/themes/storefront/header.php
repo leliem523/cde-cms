@@ -14,22 +14,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
-<?php wp_head(); ?>
-<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/animate.min.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/bootstrap-select.min.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/owl.transitions.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/rateit.css" type="text/css" media="screen" />
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/bootstrap-select.min.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/animate.min.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/blue.css" type="text/css" media="screen" />
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Barlow:200,300,300i,400,400i,500,500i,600,700,800" rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+
+<?php wp_head(); ?>
 
 <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/module6.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/module7.css" type="text/css" media="screen" />
@@ -53,11 +46,7 @@
       <div class="header-top-inner">
         <div class="cnt-account">
           <ul class="list-unstyled">
-            <li class="myaccount"><a href="#"><span>My Account</span></a></li>
-            <li class="wishlist"><a href="#"><span>Wishlist</span></a></li>
-            <li class="header_cart hidden-xs"><a href="#"><span>My Cart</span></a></li>
-            <li class="check"><a href="#"><span>Checkout</span></a></li>
-            <li class="login"><a href="#"><span>Login</span></a></li>
+		  <?php storefront_primary_navigation(); ?> 
           </ul>
         </div>
         <!-- /.cnt-account -->
@@ -95,7 +84,10 @@
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-3 logo-holder"> 
           <!-- ============================================================= LOGO ============================================================= -->
-          <div class="logo"> <a href="home.html"> <img src="assets/images/logo.png" alt="logo"> </a> </div>
+          <div class="logo module7-logo">
+			  <a href="<?php echo esc_url( home_url( '/' )); ?>">
+				  <?php echo esc_html( get_bloginfo( 'name' ) ); ?>
+				</a> </div>
           <!-- /.logo --> 
           <!-- ============================================================= LOGO : END ============================================================= --> </div>
         <!-- /.logo-holder -->
@@ -117,8 +109,10 @@
                     </ul>
                   </li>
                 </ul>
-                <input class="search-field" placeholder="Search here..." />
-                <a class="search-button" href="#" ></a> </div>
+                <input class="search-field" placeholder="Search here..." name="s" />
+		
+                <a class="search-button" href="#" ></a> 
+			</div>
             </form>
           </div>
           <!-- /.search-area --> 
@@ -128,11 +122,11 @@
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 animate-dropdown top-cart-row"> 
           <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
           
-          <div class="dropdown dropdown-cart"> <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
+          <div class="dropdown dropdown-cart"> <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
             <div class="items-cart-inner">
               <div class="basket">
-              <div class="basket-item-count"><span class="count">2</span></div>
-              <div class="total-price-basket"> <span class="lbl">Shopping Cart</span> <span class="value">$4580</span> </div>
+              <div class="basket-item-count"><span class="count"><?php echo wp_kses_data( sprintf( _n( '%d', '%d', WC()->cart->get_cart_contents_count(), 'storefront' ), WC()->cart->get_cart_contents_count() ) ); ?></span></div>
+              <div class="total-price-basket"> <span class="lbl">Shopping Cart</span> <span class="value"><?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?></span> </div>
               </div>
             </div>
             </a>
@@ -188,187 +182,16 @@
           <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
             <div class="nav-outer">
               <ul class="nav navbar-nav">
-                <li class="active dropdown"> <a href="home.html">Home</a> </li>
-                <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Clothing</a>
-                  <ul class="dropdown-menu container">
-                    <li>
-                      <div class="yamm-content ">
-                        <div class="row">
-                          <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                            <h2 class="title">Men</h2>
-                            <ul class="links">
-                              <li><a href="#">Dresses</a></li>
-                              <li><a href="#">Shoes </a></li>
-                              <li><a href="#">Jackets</a></li>
-                              <li><a href="#">Sunglasses</a></li>
-                              <li><a href="#">Sport Wear</a></li>
-                              <li><a href="#">Blazers</a></li>
-                              <li><a href="#">Shirts</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                            <h2 class="title">Women</h2>
-                            <ul class="links">
-                              <li><a href="#">Handbags</a></li>
-                              <li><a href="#">Jwellery</a></li>
-                              <li><a href="#">Swimwear </a></li>
-                              <li><a href="#">Tops</a></li>
-                              <li><a href="#">Flats</a></li>
-                              <li><a href="#">Shoes</a></li>
-                              <li><a href="#">Winter Wear</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                            <h2 class="title">Boys</h2>
-                            <ul class="links">
-                              <li><a href="#">Toys & Games</a></li>
-                              <li><a href="#">Jeans</a></li>
-                              <li><a href="#">Shirts</a></li>
-                              <li><a href="#">Shoes</a></li>
-                              <li><a href="#">School Bags</a></li>
-                              <li><a href="#">Lunch Box</a></li>
-                              <li><a href="#">Footwear</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                            <h2 class="title">Girls</h2>
-                            <ul class="links">
-                              <li><a href="#">Sandals </a></li>
-                              <li><a href="#">Shorts</a></li>
-                              <li><a href="#">Dresses</a></li>
-                              <li><a href="#">Jwellery</a></li>
-                              <li><a href="#">Bags</a></li>
-                              <li><a href="#">Night Dress</a></li>
-                              <li><a href="#">Swim Wear</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image"> <img class="img-responsive" src="assets/images/banners/top-menu-banner.jpg" alt=""> </div>
-                          <!-- /.yamm-content --> 
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
+                <li class="active dropdown"> <a href="/">Home</a> </li>
+
                 <li class="dropdown mega-menu"> 
-                <a href="category.html"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Electronics <span class="menu-label hot-menu hidden-xs">hot</span> </a>
-                  <ul class="dropdown-menu container">
-                    <li>
-                      <div class="yamm-content">
-                        <div class="row">
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Laptops</h2>
-                            <ul class="links">
-                              <li><a href="#">Gaming</a></li>
-                              <li><a href="#">Laptop Skins</a></li>
-                              <li><a href="#">Apple</a></li>
-                              <li><a href="#">Dell</a></li>
-                              <li><a href="#">Lenovo</a></li>
-                              <li><a href="#">Microsoft</a></li>
-                              <li><a href="#">Asus</a></li>
-                              <li><a href="#">Adapters</a></li>
-                              <li><a href="#">Batteries</a></li>
-                              <li><a href="#">Cooling Pads</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Desktops</h2>
-                            <ul class="links">
-                              <li><a href="#">Routers & Modems</a></li>
-                              <li><a href="#">CPUs, Processors</a></li>
-                              <li><a href="#">PC Gaming Store</a></li>
-                              <li><a href="#">Graphics Cards</a></li>
-                              <li><a href="#">Components</a></li>
-                              <li><a href="#">Webcam</a></li>
-                              <li><a href="#">Memory (RAM)</a></li>
-                              <li><a href="#">Motherboards</a></li>
-                              <li><a href="#">Keyboards</a></li>
-                              <li><a href="#">Headphones</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Cameras</h2>
-                            <ul class="links">
-                              <li><a href="#">Accessories</a></li>
-                              <li><a href="#">Binoculars</a></li>
-                              <li><a href="#">Telescopes</a></li>
-                              <li><a href="#">Camcorders</a></li>
-                              <li><a href="#">Digital</a></li>
-                              <li><a href="#">Film Cameras</a></li>
-                              <li><a href="#">Flashes</a></li>
-                              <li><a href="#">Lenses</a></li>
-                              <li><a href="#">Surveillance</a></li>
-                              <li><a href="#">Tripods</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Mobile Phones</h2>
-                            <ul class="links">
-                              <li><a href="#">Apple</a></li>
-                              <li><a href="#">Samsung</a></li>
-                              <li><a href="#">Lenovo</a></li>
-                              <li><a href="#">Motorola</a></li>
-                              <li><a href="#">LeEco</a></li>
-                              <li><a href="#">Asus</a></li>
-                              <li><a href="#">Acer</a></li>
-                              <li><a href="#">Accessories</a></li>
-                              <li><a href="#">Headphones</a></li>
-                              <li><a href="#">Memory Cards</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-xs-12 col-sm-12 col-md-4 col-menu custom-banner"> <a href="#"><img alt="" src="assets/images/banners/top-menu-banner1.jpg"></a> </div>
-                        </div>
-                        <!-- /.row --> 
-                      </div>
-                      <!-- /.yamm-content --> </li>
-                  </ul>
+                <a href="#"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Electronics <span class="menu-label hot-menu hidden-xs">hot</span> </a>
                 </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Health & Beauty <span class="menu-label new-menu hidden-xs">new</span> </a> </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Watches</a> </li>
-                <li class="dropdown"> <a href="contact.html">Jewellery</a> </li>
-                <li class="dropdown"> <a href="contact.html">Shoes</a> </li>
-                <li class="dropdown"> <a href="contact.html">Kids & Girls</a> </li>
-                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Pages</a>
-                  <ul class="dropdown-menu pages">
-                    <li>
-                      <div class="yamm-content">
-                        <div class="row">
-                          <div class="col-xs-12 col-menu">
-                            <ul class="links">
-                              <li><a href="home.html">Home</a></li>
-                              <li><a href="category.html">Category</a></li>
-                              <li><a href="detail.html">Detail</a></li>
-                              <li><a href="shopping-cart.html">Shopping Cart Summary</a></li>
-                              <li><a href="checkout.html">Checkout</a></li>
-                              <li><a href="blog.html">Blog</a></li>
-                              <li><a href="blog-details.html">Blog Detail</a></li>
-                              <li><a href="contact.html">Contact</a></li>
-                              <li><a href="sign-in.html">Sign In</a></li>
-                              <li><a href="my-wishlist.html">Wishlist</a></li>
-                              <li><a href="terms-conditions.html">Terms and Condition</a></li>
-                              <li><a href="track-orders.html">Track Orders</a></li>
-                              <li><a href="product-comparison.html">Product-Comparison</a></li>
-                              <li><a href="faq.html">FAQ</a></li>
-                              <li><a href="404.html">404</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
+                <li class="dropdown hidden-sm"> <a href="#">Health & Beauty <span class="menu-label new-menu hidden-xs">new</span> </a> </li>
+                <li class="dropdown hidden-sm"> <a href="#">Watches</a> </li>
+                <li class="dropdown"> <a href="#">Jewellery</a> </li>
+                <li class="dropdown"> <a href="#">Shoes</a> </li>
+                <li class="dropdown"> <a href="#">Kids & Girls</a> </li>
                 <li class="dropdown  navbar-right special-menu"> <a href="#">Get 30% off on selected items</a> </li>
               </ul>
               <!-- /.navbar-nav -->
@@ -398,6 +221,7 @@
 			<h1 class="module6-page-title">Shopping Cart<span>Shop</span></h1>
 		</div><!-- End .page-header -->
 		<?php } ?>
+		
 	<?php
 	/**
 	 * Functions hooked in to storefront_before_content

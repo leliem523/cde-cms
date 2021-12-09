@@ -28,7 +28,7 @@ if ( ! function_exists( 'storefront_before_content' ) ) {
 	 */
 	function storefront_before_content() {
 		?>
-		<div id="primary" class="content-area aaa">
+		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 		<?php
 	}
@@ -115,7 +115,7 @@ if ( ! function_exists( 'storefront_product_search' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_header_cart' ) ) {
+if ( ! function_exists( '' ) ) {
 	/**
 	 * Display Header Cart
 	 *
@@ -831,7 +831,7 @@ if ( ! function_exists( 'storefront_sticky_single_add_to_cart' ) ) {
 		wp_enqueue_script( 'storefront-sticky-add-to-cart' );
 		?>
 			<section class="storefront-sticky-add-to-cart">
-				<div class="container">
+				<div class="col-full">
 					<div class="storefront-sticky-add-to-cart__content">
 						<?php echo wp_kses_post( woocommerce_get_product_thumbnail() ); ?>
 						<div class="storefront-sticky-add-to-cart__content-product-info">

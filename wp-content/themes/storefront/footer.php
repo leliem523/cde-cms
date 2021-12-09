@@ -9,13 +9,13 @@
 
 ?>
 
-		</div><!-- .container -->
+		</div><!-- .col-full -->
 	</div><!-- #content -->
 
 	<?php do_action( 'storefront_before_footer' ); ?>
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="container">
+		<div class="col-full">
 
 			<?php
 			/**
@@ -27,7 +27,7 @@
 			do_action( 'storefront_footer' );
 			?>
 
-		</div><!-- .container -->
+		</div><!-- .col-full -->
 	</footer><!-- #colophon -->
 
 	<?php do_action( 'storefront_after_footer' ); ?>

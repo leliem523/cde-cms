@@ -1344,7 +1344,7 @@ header{
     text-align: center;
     font-weight: normal;
     margin-right: 11px;
-    background: url(../images/icon-cart.png) no-repeat top left;
+    background: url(../../plugins/woocommerce/assets/images/icon-cart.png) no-repeat top left;
     padding: 15px 0px;
     border-radius: 5px;
     width: 50px;
@@ -7368,4 +7368,8 @@ li.dropdown.navbar-right.special-menu {
 /*===================================================================================*/
 
 .home-banner { margin-top: 30px;}
-.home-banner img {border-radius:5px}	
+.home-banner img {border-radius:5px}
+
+.module7-logo a {
+  font-size: 4em !important;
+}

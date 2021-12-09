@@ -65,18 +65,18 @@
 }
 
 
-.module6-cart-btn-checkout {
+.module6-cart-btn-checkout a {
     color: #c96 !important;
     border: #c96 1px solid !important;
     background: white !important;
     font-size: 16px !important;
 }
 
-.module6-cart-btn-checkout::after {
+.module6-cart-btn-checkout a::after {
     display: none;
 }
 
-.module6-cart-btn-checkout:hover {
+.module6-cart-btn-checkout a:hover {
     background: #c96 !important;
     color: white !important;
 }
