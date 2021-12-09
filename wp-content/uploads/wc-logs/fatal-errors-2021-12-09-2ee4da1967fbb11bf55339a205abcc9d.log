@@ -495,3 +495,29 @@ Stack trace:
 
 2021-12-09T03:00:44+00:00 CRITICAL syntax error, unexpected token "&&" in E:\github\project-cms\branch master\training-cms\wp-content\themes\storefront\inc\storefront-template-functions.php on line 336
 
+2021-12-09T08:46:19+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function storefront_product_categories(), 0 passed in E:\github\project-cms\branch master\training-cms\wp-content\themes\storefront\header.php on line 216 and exactly 1 expected in E:\github\project-cms\branch master\training-cms\wp-content\themes\storefront\inc\woocommerce\storefront-woocommerce-template-functions.php:268
+Stack trace:
+#0 E:\github\project-cms\branch master\training-cms\wp-content\themes\storefront\header.php(216): storefront_product_categories()
+#1 E:\github\project-cms\branch master\training-cms\wp-includes\template.php(770): require_once('E:\\github\\proje...')
+#2 E:\github\project-cms\branch master\training-cms\wp-includes\template.php(716): load_template('E:\\github\\proje...', true, Array)
+#3 E:\github\project-cms\branch master\training-cms\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#4 E:\github\project-cms\branch master\training-cms\wp-content\themes\storefront\page.php(13): get_header()
+#5 E:\github\project-cms\branch master\training-cms\wp-includes\template-loader.php(106): include('E:\\github\\proje...')
+#6 E:\github\project-cms\branch master\training-cms\wp-blog-header.php(19): require_once('E:\\github\\proje...')
+#7 E:\github\project-cms\branch master\training-cms\index.php(17): require('E:\\github\\proje...')
+#8 {main}
+  thrown in E:\github\project-cms\branch master\training-cms\wp-content\themes\storefront\inc\woocommerce\storefront-woocommerce-template-functions.php on line 268
+
+2021-12-09T08:46:21+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function storefront_product_categories(), 0 passed in E:\github\project-cms\branch master\training-cms\wp-content\themes\storefront\header.php on line 216 and exactly 1 expected in E:\github\project-cms\branch master\training-cms\wp-content\themes\storefront\inc\woocommerce\storefront-woocommerce-template-functions.php:268
+Stack trace:
+#0 E:\github\project-cms\branch master\training-cms\wp-content\themes\storefront\header.php(216): storefront_product_categories()
+#1 E:\github\project-cms\branch master\training-cms\wp-includes\template.php(770): require_once('E:\\github\\proje...')
+#2 E:\github\project-cms\branch master\training-cms\wp-includes\template.php(716): load_template('E:\\github\\proje...', true, Array)
+#3 E:\github\project-cms\branch master\training-cms\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#4 E:\github\project-cms\branch master\training-cms\wp-content\themes\storefront\page.php(13): get_header()
+#5 E:\github\project-cms\branch master\training-cms\wp-includes\template-loader.php(106): include('E:\\github\\proje...')
+#6 E:\github\project-cms\branch master\training-cms\wp-blog-header.php(19): require_once('E:\\github\\proje...')
+#7 E:\github\project-cms\branch master\training-cms\index.php(17): require('E:\\github\\proje...')
+#8 {main}
+  thrown in E:\github\project-cms\branch master\training-cms\wp-content\themes\storefront\inc\woocommerce\storefront-woocommerce-template-functions.php on line 268
+

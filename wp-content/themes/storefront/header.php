@@ -16,8 +16,6 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/bootstrap-select.min.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/animate.min.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.css" type="text/css" media="screen" />
 
 
@@ -38,7 +36,7 @@
 	<?php do_action( 'storefront_before_header' ); ?>
 
 	<!-- ============================================== HEADER ============================================== -->
-<header class="header-style-1"> 
+<header class="header-style-1" > 
   
   <!-- ============================================== TOP MENU ============================================== -->
   <div class="top-bar animate-dropdown">
@@ -96,7 +94,7 @@
           <!-- /.contact-row --> 
           <!-- ============================================================= SEARCH AREA ============================================================= -->
           <div class="search-area">
-            <form>
+            <form  role="search" method="get" class="woocommerce-product-search" action="<?php echo esc_url( home_url( '/' ) ); ?>">
               <div class="control-group">
                 <ul class="categories-filter animate-dropdown">
                   <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
@@ -109,9 +107,10 @@
                     </ul>
                   </li>
                 </ul>
-                <input class="search-field" placeholder="Search here..." name="s" />
-		
-                <a class="search-button" href="#" ></a> 
+                <label class="screen-reader-text" for="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>"><?php esc_html_e( 'Search for:', 'woocommerce' ); ?></label>
+              <input type="search" id="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>" class="search-field" placeholder="<?php echo esc_attr__( 'Search here&hellip;', 'woocommerce' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+              <button class="search-button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+              <input type="hidden" name="post_type" value="product" />
 			</div>
             </form>
           </div>
